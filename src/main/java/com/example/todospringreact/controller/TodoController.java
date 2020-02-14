@@ -17,12 +17,20 @@ public class TodoController {
     private TodoRepo todoRepo;
 
     @GetMapping
-    public List<Todo> findAll(){
+    public List<Todo> findAll() {
         return todoRepo.findAll();
     }
 
     @PostMapping
-    public Todo save(@Valid @NotNull @RequestBody Todo todo){
+    public Todo save(@Valid @NotNull @RequestBody Todo todo) {
         return todoRepo.save(todo);
+    }
+
+    @PostMapping(path = "/add")
+    public @ResponseBody String addNewTodo(@RequestBody Todo todoText) {
+
+        todoRepo.save(todoText);
+
+        return "Saved";
     }
 }

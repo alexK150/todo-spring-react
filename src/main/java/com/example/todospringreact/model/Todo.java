@@ -8,18 +8,18 @@ import javax.validation.constraints.NotBlank;
 public class Todo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank
     @Column(name = "todo_text")
     private String todoText;
     @Column(name = "todo_done")
-    private String isDone;
+    private boolean isDone = false;
 
     public Todo() {
     }
 
-    public Todo(Long id, String todoText, String isDone) {
+    public Todo(Long id, String todoText, boolean isDone) {
         this.id = id;
         this.todoText = todoText;
         this.isDone = isDone;
@@ -42,11 +42,11 @@ public class Todo {
         this.todoText = todoText;
     }
 
-    public String isDone() {
+    public boolean isDone() {
         return isDone;
     }
 
-    public void setDone(String done) {
+    public void setDone(boolean done) {
         isDone = done;
     }
 }
