@@ -33,4 +33,12 @@ public class TodoController {
 
         return "Saved";
     }
+
+    @PutMapping
+    public @ResponseBody String updateTodo(@Valid @NotNull @RequestBody Todo todo){
+
+        todoRepo.save(todo);
+
+        return "Updated";
+    }
 }
