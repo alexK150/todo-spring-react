@@ -41,4 +41,12 @@ public class TodoController {
 
         return "Updated";
     }
+
+    @DeleteMapping(value = "/{id}")
+    public @ResponseBody String deleteTodo(@PathVariable Long id){
+
+        todoRepo.deleteById(id);
+
+        return "Deleted";
+    }
 }
