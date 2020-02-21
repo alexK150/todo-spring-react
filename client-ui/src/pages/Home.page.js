@@ -6,7 +6,7 @@ import {TodoContext} from '../context/todo/todo-context';
 import {Loader} from '../components/Loader.component';
 
 export const Home = () => {
-    const {isLoading, todo, fetchTodo, removeTodo, ft} = useContext(TodoContext);
+    const {isLoading, todo, fetchTodo, removeTodo} = useContext(TodoContext);
 
     useEffect(() => {
         fetchTodo()
@@ -19,7 +19,7 @@ export const Home = () => {
             <hr/>
             {isLoading
                 ? <Loader/>
-                : <Todo todo={todo} removeTodo={removeTodo} ft={ft}/>
+                : <Todo todo={todo} removeTodo={removeTodo}/>
             }
         </>
     )
